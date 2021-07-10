@@ -1,6 +1,6 @@
 
 
-const appPort = process.argv[2] || 8081;
+
 
 const express = require('express');
 const path = require('path');
@@ -8,6 +8,11 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const errorHandler = require('errorhandler');
+
+const config = require('./config/config.js');
+
+const appPort = config.APP_PORT || 8081;
+console.log("APP_PORT: " + config.APP_PORT);
 
 //Configure mongoose's promise to global promise
 mongoose.promise = global.Promise;
@@ -31,6 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'passport-tutorial', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
+
 
 if(!isProduction) {
   app.use(errorHandler());

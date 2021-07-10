@@ -116,3 +116,4 @@ Add Tasks to the Users. To POST you will need a valid token.
 ```
 > TIP: The Date-Time stamp is required in the following format `YYYY-MM-DDTHH:MM:SS.MSZ`. Eg: `2019-02-12T22:45:23Z`
 
+> TIP: Try to use the [`Postman` collection](https://github.com/husainkhambaty/mockingjay/blob/master/Postman_Collection.json) provided for a quick test.
